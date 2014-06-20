@@ -11,7 +11,9 @@ def push_photo():
     # read request data
     camera_id = request.form['camera_id']
     picture_id = request.form['picture_id'] 
+    s3_base_path = request.form['s3_base_path']
     time_stamp = request.form['time_stamp']
+    return '200'
     
 
 
