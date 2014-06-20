@@ -1,4 +1,4 @@
-#import picamera
+import picamera
 import sys
 import boto
 from boto.s3.key import Key
@@ -31,13 +31,11 @@ class PhotoScript:
 
 
     def take_picture(self, file_name):
-        """
         with picamera.PiCamera() as camera:
             camera.start_preview()
             time.sleep(5) 
             camera.capture(concat_paths(self.photo_base, file_name))
             camera.stop_preview()
-            """
         return file_name
 
     def send_photo(self, file_name):
@@ -62,8 +60,8 @@ def main():
     config_file = sys.argv[1]
     photo_scripter = PhotoScript(config_file)
 
-    #file_name = 'test.jpg'
     file_name = photo_scripter.make_file_name()
+    photo_scripter.take_picture(file_name)
     photo_scripter.send_photo(file_name)
 
 
