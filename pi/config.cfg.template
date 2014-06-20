@@ -1,0 +1,10 @@
+[s3]
+aws_access_key: 123 
+aws_secret_access_key: 123 
+bucket: my_bucket
+
+[local]
+camera_id: some_id
+photo_base: photos
+
+
