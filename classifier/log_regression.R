@@ -5,6 +5,15 @@
 #
 ############
 
+predict <- function(theta, x) {
+
+    h = sigmoid(theta %*% t(x));
+    y = t(h >= 0.5) + 0;
+
+   return (y);
+
+}
+
 costFunction <- function(theta, x, y, lambda) {
 
     # number of examples
