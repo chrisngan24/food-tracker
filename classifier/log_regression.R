@@ -11,10 +11,10 @@ costFunction <- function(theta, x, y, lambda) {
     m = length(y);
 
     # compute the sigmoid for the whole set
-    h = sigmoid(x %*% theta);
+    h = sigmoid(theta %*% t(x));
 
     # compute cost
-    J = sum((t(log(h)) %*% y) + (t(log(1-h)) %*% (1-y))) / (0-m) + (lambda / (2 * m)) %*% sum(theta ^ 2);
+    J = sum((log(h) %*% y) + (log(1-h) %*% (1-y))) / (0-m) + (lambda / (2 * m)) * sum(theta ^ 2);
 
     return(J);
 
