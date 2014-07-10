@@ -85,6 +85,22 @@ binary_image <- function(img, t = 128) {
 
 }
 
+white_trim <- function(img) {
+
+    # create a binary matrix of filled pixels
+    isFilled <- (img != 255);
+ 
+    # determine filtering window
+    x1 <- min(which(rowSums(isFilled) > 0)) 
+    x2 <- max(which(rowSums(isFilled) > 0)) 
+    y1 <- min(which(colSums(isFilled) > 0)) 
+    y2 <- max(which(colSums(isFilled) > 0)) 
+
+    # create new image from window
+    return(imagedata(img[x1:x2, y1:y2]));
+
+}
+
 # To be added
 remove_background <- function(img) {
 
