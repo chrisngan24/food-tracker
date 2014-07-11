@@ -1,0 +1,56 @@
+.spoiled, .eatsoon{
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+}
+.spoiled{
+  background: #FA0321;
+  background-image: linear-gradient(#FFAAC5,#FA0321);
+  background-color: rgb(250, 3, 33);
+ 
+  border-top-color: rgb(244, 63, 92);
+  border-top-style: solid;
+}
+
+.spoiled h1, p, .eatSoon  h1, p{
+  color: #DFEAF0 !important;
+  font-weight: bolder !important;
+}
+
+.spoiled:hover{
+  background: #FB6F7A;
+  background-image: linear-gradient(#FFBAC0,#F82730);
+  background-color: rgb(251, 111, 122);
+}
+
+.spoiled:active{
+  background: #FCA7A7;
+  background-image: linear-gradient(#F84C4C,#FA0321);
+  background-color: rgb(252, 167, 167);
+}
+
+.eatSoon{
+  background: #FA3E03;
+  background-image: linear-gradient(#FFC9AA,#FA4803);
+  background-color: rgb(250, 52, 3);
+  
+  border-top-color: rgb(244, 121, 63);
+  border-top-style: solid;
+}
+
+.eatSoon:hover {
+  background: #FB9C6F;
+  background-image: linear-gradient(#F3AD84,#FC4005);
+  background-color: rgb(251, 150, 111);
+}
+
+.eatSoon:active{
+  background: #FCC9A7;
+  background-image: linear-gradient(#F8834C,#FA3403);
+  background-color: rgb(252, 201, 167);
+}
