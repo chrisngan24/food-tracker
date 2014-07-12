@@ -38,14 +38,29 @@ extractFeatures <- function(path, print=FALSE) {
 # A function that approximates the "roundness" of an object
 find_roundness <- function(img) {
 
-	bin = binary_image(img, 220);
-	hbin = high_pass(bin, TRUE);
+	bin = binary_cluster(img, 1);
+	hbin = imgCanny(bin, 0.8);
 
 	area = sum(bin == 0);
 	perimeter = sum(hbin == 0);
 	roundness = (4 * pi * area) / (perimeter ^ 2);
 
 	return(roundness);
+
+}
+
+# Edge Detect
+binary_cluster <- function(img, class = 1) {
+
+	library("biOps");
+	segments <- imagedata(imgEKMeans(img, 3), "grey");
+	types <- unique(c(segments));
+
+	edge1 <- segments;
+	edge1[which(edge1 != types[class])] = 0;
+ 	edge1[which(edge1 == types[class])] = 255;
+
+	return(edge1);
 
 }
 

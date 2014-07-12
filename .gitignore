@@ -58,3 +58,4 @@ docs/_build/
 
 # photos from pi
 pi/photos/*
+classifier/training_data/
