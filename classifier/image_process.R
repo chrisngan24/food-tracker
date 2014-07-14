@@ -17,10 +17,10 @@ extractFeatures <- function(path, print=FALSE) {
 	object_indices = which(binary_image(f,220) == 0);
 
 	# really noob way to extract RGB
-	red = mean((f[,,1])[object_indices]);
-	green = mean((f[,,2])[object_indices]);
-	blue = mean((f[,,3])[object_indices]);
-	roundness = find_roundness(f);
+	red = mean((f[,,1])[object_indices]) / 255;
+	green = mean((f[,,2])[object_indices]) / 255;
+	blue = mean((f[,,3])[object_indices]) / 255;
+	roundness = find_roundness(f) / 255;
 
 	if (print) {
 

@@ -20,6 +20,7 @@ for (class_num in 1:length(classes)) {
     for (obj in 1:length(imagelist)) {
 
         vec <- c(extractFeatures(imagelist[obj]), class_num);	
+        print(vec)
 	bigX <- rbind(bigX, vec);
 
     }
