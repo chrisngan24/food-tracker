@@ -1,14 +1,19 @@
-.numOfFruit.ui-block-a{
-  color: darkgrey;
+.ui-block-a{
+  width: 10%!important;
+  display: block!important;
+}
+.numOfFruit.ui-block-b{
   width: 10%!important;
 }
-.fruit.ui-block-b{
-  width: 80% !important;
+.smiley{
+  vertical-align:-webkit-baseline-middle;
+}
+.fruit.ui-block-c{
+  width: 70% !important;
   text-align: center;
 }
-.numOfDays.ui-block-c p{
+.numOfDays.ui-block-d p{
   font-size: 12px;
-  color: darkgrey;
   text-align: right;
   margin: 0px;
   text-align: center;
