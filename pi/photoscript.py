@@ -4,6 +4,8 @@ import boto
 from boto.s3.key import Key
 import time
 import ConfigParser
+import requests
+import json
 
 
 def parse_config_file(config_file):
@@ -47,9 +49,9 @@ class PhotoScript:
    
     def make_file_name(self):
         return ('%s-%s.jpg' % (self.camera_id, str(time.time()).split('.')[0])) 
-    def send_request(self, file_name, time_stamp):
-        payload = {
-                    'camera_id' : self.camera_id
-                }
+    def send_request(self, url, payload):
+        r = requests.post(url, data=json.dumps(payload))
+        print r
+
 
 
