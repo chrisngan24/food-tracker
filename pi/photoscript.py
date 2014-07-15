@@ -33,7 +33,7 @@ class PhotoScript:
     def take_picture(self, file_name):
         with picamera.PiCamera() as camera:
             camera.start_preview()
-            time.sleep(1) 
+            time.sleep(0.5) 
             camera.capture(concat_paths(self.photo_base, file_name))
             camera.stop_preview()
         return file_name
@@ -47,5 +47,9 @@ class PhotoScript:
    
     def make_file_name(self):
         return ('%s-%s.jpg' % (self.camera_id, str(time.time()).split('.')[0])) 
+    def send_request(self, file_name, time_stamp):
+        payload = {
+                    'camera_id' : self.camera_id
+                }
 
 
