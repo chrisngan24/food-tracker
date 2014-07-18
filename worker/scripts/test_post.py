@@ -7,6 +7,7 @@ def test_push_photo(test_url):
             'bucket' : 'food-tracker',
             'time_in'   : str(time.time()),
             'camera_id' : '12345',
+            'mode'      : '001',
             'file_name' : '012-1403293585.jpg'
 
             }
