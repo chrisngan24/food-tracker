@@ -33,5 +33,8 @@ for (i in 1:num_classes) {
 
 }
 
-trained_model <- trained_model[-1,];
+# Save model values
+trained_model <- as.matrix(trained_model[-1,]);
 write.table(trained_model, file = "model.txt", row.names = FALSE, col.names = FALSE);
+
+

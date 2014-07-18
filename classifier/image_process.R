@@ -14,7 +14,7 @@ extractFeatures <- function(path, print=FALSE) {
 	library("biOps");
 	f = readJpeg(path);
 
-	object_indices = which(binary_image(f,220) == 0);
+	object_indices = which(binary_cluster(f,1) == 0);
 
 	# really noob way to extract RGB
 	red = mean((f[,,1])[object_indices]) / 255;

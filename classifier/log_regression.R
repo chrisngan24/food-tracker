@@ -7,6 +7,12 @@
 
 predict <- function(theta, x) {
 
+    return(sigmoid(theta %*% t(x))); 
+
+}
+
+predict_binary <- function(theta, x) {
+
     h = sigmoid(theta %*% t(x));
     y = t(h >= 0.5) + 0;
 
