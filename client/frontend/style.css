@@ -1,12 +1,9 @@
-.ui-block-a{
+#inventoryTable .ui-block-a{
   width: 10%!important;
   display: block!important;
 }
 .numOfFruit.ui-block-b{
   width: 10%!important;
-}
-.smiley{
-  vertical-align:-webkit-baseline-middle;
 }
 .fruit.ui-block-c{
   width: 70% !important;
@@ -21,4 +18,7 @@
 }
 h1{
   text-align: center!important;
+}
+i{
+  vertical-align:-webkit-baseline-middle;
 }
