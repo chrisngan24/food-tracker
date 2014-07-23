@@ -5,7 +5,7 @@
 source("image_process.R");
 setwd("training_data");
 
-classes <- list.files();
+classes <- sort(list.files());
 num.features <- 4;
 
 bigX <- matrix(0, nr = 1, nc = num.features + 1);
