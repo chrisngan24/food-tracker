@@ -7,4 +7,5 @@ bucket: my_bucket
 camera_id: some_id
 photo_base: photos
 
-
+[url]
+url: http://myurl.com
