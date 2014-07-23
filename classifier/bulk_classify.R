@@ -15,7 +15,6 @@ class_out <- c();
 
 for (i in 1:num.classes) {
 
-    y1 <- (bigX[,num.classes] == i) + 0; 
     vec <- predict(model[i,1:num.features], bigX[,1:num.features]);    
 
     prob.matrix[,i] <- t(vec);
@@ -27,3 +26,5 @@ for (m in 1:num.samples) {
     class_out <- c(class_out, which.max(prob.matrix[m,]));
 
 }
+
+
