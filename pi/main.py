@@ -7,10 +7,11 @@ import ConfigParser
 from photoscript import PhotoScript
 import RPi.GPIO as GPIO
 import led
+import time
 
 INPUT_STATE = 1
 OUTPUT_STATE = 0
-URL = ''
+
 def check_sensor(sensor_pin):
     if (GPIO.input(sensor_pin) == False):
         return True
@@ -45,6 +46,7 @@ def make_payload(file_name, photo_scripter, mode='001'):
     return { 'camera_id' : photo_scripter.camera_id,
              'bucket'    : photo_scripter.bucket_name,
              'file_name' : file_name,
+             'time_in'   : str(time.time()),
              'mode'      : mode}
 
 
@@ -82,7 +84,8 @@ def main():
             print GPIO.input(sensor_pin)
             file_name = take_picture(photo_scripter, salient_pin)
             photo_scripter.send_photo(file_name)
-            photo_scripter.send_request(URL, make_payload(file_name, photo_scripter))
+            url = photo_scripter.url
+            photo_scripter.send_request(url, make_payload(file_name, photo_scripter))
             time.sleep(0.2)
         time.sleep(0.2)
 

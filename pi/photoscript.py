@@ -26,6 +26,7 @@ class PhotoScript:
         self.camera_id = config.get('local', 'camera_id')
         self.photo_base = config.get('local', 'photo_base')
         self.conn = self._get_connection()
+        self.url = config.get('url', 'url')
 
     def _get_connection(self):
         return boto.connect_s3(self.aws_access_key, 
