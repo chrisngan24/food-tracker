@@ -4,7 +4,7 @@ import json
 
 def test_push_photo(test_url):
     payload = {
-            'bucket' : 'food-tracker',
+            'bucket'    : 'food-tracker',
             'time_in'   : str(time.time()),
             'camera_id' : '12345',
             'mode'      : '001',
