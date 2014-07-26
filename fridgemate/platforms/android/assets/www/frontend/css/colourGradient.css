@@ -1,0 +1,26 @@
+.spoiled, .eatsoon{
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+}
+.spoiled{
+  background: #FD6D78;
+  border-top-style: solid;
+}
+
+.spoiled:active{
+  background: #FCA7A7;
+}
+
+.eatSoon{
+  background: #FBEA6F;
+}
+
+.eatSoon:active{
+  background: #FFF5AB;
+}

@@ -1,0 +1,24 @@
+#inventoryTable .ui-block-a{
+  width: 10%!important;
+  display: block!important;
+}
+.numOfFruit.ui-block-b{
+  width: 10%!important;
+}
+.fruit.ui-block-c{
+  width: 70% !important;
+  text-align: center;
+}
+.numOfDays.ui-block-d p{
+  font-size: 12px;
+  text-align: right;
+  margin: 0px;
+  text-align: center;
+  line-height: initial;
+}
+h1{
+  text-align: center!important;
+}
+i{
+  vertical-align:-webkit-baseline-middle;
+}
