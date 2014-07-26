@@ -8,10 +8,10 @@
 #
 ########
 
+library("biOps");
 extractFeatures <- function(path, print=FALSE) {
 
-	# load libraries for IP
-	library("biOps");
+	# load image for IP
 	f = readJpeg(path);
 
 	object_indices = which(binary_cluster(f,1) == 0);
@@ -52,8 +52,7 @@ find_roundness <- function(img) {
 # Edge Detect
 binary_cluster <- function(img, class = 1) {
 
-	library("biOps");
-	segments <- imagedata(imgEKMeans(img, 3), "grey");
+	segments <- imagedata(imgEKMeans(img, 2), "grey");
 	types <- unique(c(segments));
 
 	edge1 <- segments;
@@ -66,9 +65,6 @@ binary_cluster <- function(img, class = 1) {
 
 # A function which will perform a high pass filter over an image
 high_pass <- function(img, binary = TRUE) {
-
-	# load libraries for IP
-	library("biOps");
 
 	filter_hi = matrix(1, nc=3, nr=3);
 	filter_hi[2,2] = -8;
@@ -86,9 +82,6 @@ high_pass <- function(img, binary = TRUE) {
 # A function which will perform a binarization of an image
 # t - the threshold over which pixels are sorted
 binary_image <- function(img, t = 128) {
-
-	# load libraries for IP
-	library("biOps");
 
 	img_out = imagedata(img,"grey");
 	
