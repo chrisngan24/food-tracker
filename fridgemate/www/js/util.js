@@ -1,8 +1,8 @@
 /* TODO
 - function for plural, add s for days or inventory name (since we are just doing carrots and apples
-- make colour scheme for spoiled, about to expire and good (red, orange, yellow, white?)
+- set default date for entering food items as today
  */
-$(document).on('pageinit', function () {
+$(document).on('pageshow','#inventory', function () {
   $.get("footer.html", function(data){
     $("[data-role='footer']").append(data).trigger("create");
   });
@@ -12,6 +12,9 @@ $(document).on('pageinit', function () {
     success: function (data){
       renderList(data)
     },
+  });
+  $('#addItem').bind('popupbeforeposition', function(){
+    insertDefaultDate();
   });
 }); 
 
@@ -57,4 +60,23 @@ function getFace (status){
     return 'fa fa-frown-o';
   else
     return 'fa fa-smile-o';
+}
+
+function insertDefaultDate(){
+  today=getToday();
+  $("#dateIn").val(today[0]+'-'+today[1]+'-'+today[2]);
+}
+
+function getToday(){	
+	date = new Date();
+	d = date.getDate();
+	m = date.getMonth()+1;
+	y = date.getFullYear();
+
+  if(m < 10) 
+    m = "0" + m;
+  if(d < 10) 
+    d = "0" + d;
+  
+  return [y,m,d];
 }
