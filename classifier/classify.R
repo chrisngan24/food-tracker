@@ -23,8 +23,8 @@ for (i in 1:num.classes) {
 
 }
 
-print(prob.vec);
+#print(prob.vec);
 class <- which.max(prob.vec);
 
-print(paste("Predicting: ", num2Name(class)));
+cat(num2Name(class));
 
