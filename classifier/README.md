@@ -1,4 +1,6 @@
+###############################
 # Installing
+###############################
 * update .Rprofile
 
 ```
@@ -18,3 +20,17 @@ sudo apt-get install libtiff-dev
 ```
 install.package("biOps")
 ```
+#################################
+# How to use this package
+#################################
+
+> Rscript buildFeatures.R
+> Rscript train_models.R
+
+For each object,
+> Rscript classify.R image.jpg
+    - Output will be the object class
+
+
+
+

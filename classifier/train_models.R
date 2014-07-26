@@ -15,10 +15,10 @@ trained_model <- matrix(0, nr = 1, nc = num_features + 1);
 for (i in 1:num_classes) {
 
     # create new matrix with binary class
-    x <- training_data[,1:4];
-    y <- (training_data[,5] == i) + 0; 
+    x <- training_data[,1:num_features];
+    y <- (training_data[,num_features + 1] == i) + 0; 
 
-    init_theta <- rnorm(4);
+    init_theta <- rnorm(num_features);
     result <- optim(par = init_theta,
 	      costFunction,
               x = x,

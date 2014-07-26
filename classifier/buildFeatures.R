@@ -8,7 +8,8 @@ setwd("training_data");
 classes <- sort(list.files());
 num.features <- 4;
 
-bigX <- matrix(0, nr = 1, nc = num.features + 1);
+# columns is features + 2, because of bias units and class label
+bigX <- matrix(0, nr = 1, nc = num.features + 2);
 
 for (class_num in 1:length(classes)) {
 
@@ -19,7 +20,7 @@ for (class_num in 1:length(classes)) {
     # iterate over all items
     for (obj in 1:length(imagelist)) {
 
-        vec <- c(extractFeatures(imagelist[obj]), class_num);	
+        vec <- c(1, extractFeatures(imagelist[obj]), class_num);	
         print(vec)
 	bigX <- rbind(bigX, vec);
 
