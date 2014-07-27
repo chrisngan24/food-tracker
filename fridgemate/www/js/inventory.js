@@ -4,6 +4,7 @@
  */
 
 function renderList(data){
+  $("#inventoryTable").empty();
   for (i=0; i<data.length; i++){
     addInventoryList(data[i]);
   }
