@@ -105,7 +105,7 @@ function sendUpdate(){
     count: parseInt($('#recNumOfItem').val()),
   };
   $.ajax({
-    url:'http://29432714.ngrok.com/api/v1/update_entry',
+    url:'http://shrouded-beyond-1547.herokuapp.com/api/v1/update_entry',
     type:'POST',
     data:JSON.stringify(sendThings),
     dataType: 'json',
