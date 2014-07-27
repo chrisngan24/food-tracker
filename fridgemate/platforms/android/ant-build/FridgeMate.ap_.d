@@ -35,7 +35,7 @@ C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\and
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\footer.html \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\frontend \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\index.html \
-C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\inventoryItemTemp.html \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\inventory.html \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\nativedroid \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\css\colourGradient.css \
