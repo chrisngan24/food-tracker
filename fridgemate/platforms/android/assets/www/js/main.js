@@ -37,7 +37,3 @@ $(document).on('pageshow','#inventory', function () {
 }); 
 
 
-$(document).on('pageshow','#grocery', function () {
-  Grocery.initialize();
-
-});

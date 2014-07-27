@@ -34,6 +34,7 @@ C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\and
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\css \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\footer.html \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\frontend \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\grocery.html \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\index.html \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\inventory.html \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js \
@@ -142,6 +143,11 @@ C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\and
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\frontend\nativedroid\css\fonts\roboto\RobotoCondensed-Regular-webfont.ttf \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\frontend\nativedroid\css\fonts\roboto\RobotoCondensed-Regular-webfont.woff \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\frontend\nativedroid\js\nativedroid.script.js \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js\grocery.js \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js\inventory.js \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js\main.js \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js\model.js \
+C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js\service.js \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\js\util.js \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\nativedroid\css \
 C:\Users\Christopher\Documents\Development\food-tracker\fridgemate\platforms\android\assets\www\nativedroid\js \
