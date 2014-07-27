@@ -38,3 +38,5 @@ bigX <- bigX[-1,]
 setwd("..");
 write.table(bigX, file="bigX.txt", row.names = FALSE, col.names = FALSE);
 
+print(paste("Done building features for: ", classes));
+

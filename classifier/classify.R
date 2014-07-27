@@ -6,7 +6,7 @@ source("log_regression.R");
 imagePath <- commandArgs(TRUE)[1];
 
 # Get command line arg of image
-feature_vec <- extractFeatures(imagePath);
+feature_vec <- c(1, extractFeatures(imagePath));
 
 # Get model 
 model <- as.matrix(read.table("model.txt"));
@@ -23,7 +23,7 @@ for (i in 1:num.classes) {
 
 }
 
-#print(prob.vec);
+print(prob.vec);
 class <- which.max(prob.vec);
 
 cat(num2Name(class));

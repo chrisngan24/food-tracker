@@ -27,4 +27,8 @@ for (m in 1:num.samples) {
 
 }
 
+real_class <- bigX[,num.features + 1];
+
+return(class_out == real_class);
+
 
