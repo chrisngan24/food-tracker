@@ -2,56 +2,7 @@
 - function for plural, add s for days or inventory name (since we are just doing carrots and apples
 - set default date for entering food items as today
  */
- var userId='012';
- var listOfFood;
-$(document).on('pageinit', '#index', function(){
-  $.get("footer.html", function(data){
-    $("[data-role='footer']").append(data).trigger("create");
-  });
-  $('fa-list').click();
-});
-$(document).on('pageshow','#inventory', function () {
-  $.ajax({
-    url:"http://shrouded-beyond-1547.herokuapp.com/api/v1/inventory?user_id="+userId,
-    type: "GET",
-    success: function (data){
-      renderList(data)
-      listOfFood = data;
-      $(".inventoryItem").click(function(){
-        itemId = $(this).data('item-id');
-        itemStatus = $(this).data('status');
-        itemDays = $(this).data('days');
-        setRecordPopup(itemId, itemStatus, itemDays);
-      });
-      $('.inventoryItem').on('swipe',function(){
-        console.log('yooo');
-        $(this).hide();
-      });
-      $("#itemRecord").bind('popupbeforeposition', function(){
-        $("#recSubmit").on('click', function(){
-          sendThings={
-            id:String(record[0].id),
-            count: parseInt($('#recNumOfItem').val()),
-          };
-          $.ajax({
-            url:'http://shrouded-beyond-1547.herokuapp.com/api/v1/update_entry',
-            type:'POST',
-            data:JSON.stringify(sendThings),
-            dataType: 'json',
-            contentType: 'application/json',
-          });
-        });
-      });
-    },
-  });
-  //adding item popup
-  $('#addItem').bind('popupbeforeposition', function(){
-    insertDefaultDate();
-    $('#puSubmit').on('tap', function(){
-      manualAdd();
-    });
-  });
-}); 
+
 function renderList(data){
   for (i=0; i<data.length; i++){
     daysInFridge = getDaysInFridge(parseInt(data[i]['time_in']));
@@ -147,4 +98,17 @@ function setRecordPopup(itemId, itemStatus, itemDays){
   $('#recDays').append(itemDays);
   
   $('#recNumOfItem').val(record[0].count);
+}
+function sendUpdate(){
+  sendThings={
+    id:String(record[0].id),
+    count: parseInt($('#recNumOfItem').val()),
+  };
+  $.ajax({
+    url:'http://29432714.ngrok.com/api/v1/update_entry',
+    type:'POST',
+    data:JSON.stringify(sendThings),
+    dataType: 'json',
+    contentType: 'application/json',
+  });
 }
