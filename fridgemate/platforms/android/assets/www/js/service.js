@@ -11,7 +11,7 @@ Service.loadInventory = function(BASE_URL, userId, callback){
     url: BASE_URL + '/api/v1/inventory?user_id='+userId,
     type: 'GET',
     success: function(data){
-      Model.inventory.setInventory(data);
+    	localStorage.setItem('inventory', JSON.stringify(data));
       if (callback) callback();
     }
   });	
@@ -22,7 +22,7 @@ Service.loadUser = function(BASE_URL, userId, callback){
 		url: BASE_URL + '/api/v1/user?user_id=' + userId,
 		type: 'GET',
 		success: function(data){
-      Model.user.setUser(data);
+    	localStorage.setItem('user', JSON.stringify(data));
       if (callback) callback();
 		}
 	});
