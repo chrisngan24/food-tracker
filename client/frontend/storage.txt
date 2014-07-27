@@ -1,0 +1,33 @@
+<li class='spoiled'>
+            <a>
+              <div class="ui-block-a"><i class="fa fa-frown-o"></i></div>
+              <div class="ui-block-b numOfFruit"><h1>3</h1></div>
+              <div class="ui-block-c fruit"><h1>Pear</h1></div>
+              <div class="ui-block-d numOfDays">
+                <p>5</p>
+                <p>days</p>
+              </div>
+            </a>
+          </li>          
+          <li class='eatSoon'>
+            <a>
+              <div class="ui-block-a"><i class="fa fa-meh-o"></i></div>
+              <div class="ui-block-b numOfFruit"><h1>2</h1></div>
+              <div class="ui-block-c fruit"><h1>Carrot</h1></div>
+              <div class="ui-block-d numOfDays">
+                <p>3</p>
+                <p>days</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a>
+              <div class="ui-block-a"><i class="fa fa-smile-o"></i></div>
+              <div class="ui-block-b numOfFruit"><h1>1</h1></div>
+              <div class="ui-block-c fruit"><h1>Apple</h1></div>
+              <div class="ui-block-d numOfDays">
+                <p>1</p>
+                <p>days</p>
+              </div>
+            </a>
+          </li>

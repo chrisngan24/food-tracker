@@ -2,22 +2,56 @@
 - function for plural, add s for days or inventory name (since we are just doing carrots and apples
 - set default date for entering food items as today
  */
-$(document).on('pageshow','#inventory', function () {
+ var userId='012';
+ var listOfFood;
+$(document).on('pageinit', '#index', function(){
   $.get("footer.html", function(data){
     $("[data-role='footer']").append(data).trigger("create");
   });
+  $('fa-list').click();
+});
+$(document).on('pageshow','#inventory', function () {
   $.ajax({
-    url:"http://shrouded-beyond-1547.herokuapp.com/api/v1/get_inventory?user_id=012",
+    url:"http://shrouded-beyond-1547.herokuapp.com/api/v1/inventory?user_id="+userId,
     type: "GET",
     success: function (data){
       renderList(data)
+      listOfFood = data;
+      $(".inventoryItem").click(function(){
+        itemId = $(this).data('item-id');
+        itemStatus = $(this).data('status');
+        itemDays = $(this).data('days');
+        setRecordPopup(itemId, itemStatus, itemDays);
+      });
+      $('.inventoryItem').on('swipe',function(){
+        console.log('yooo');
+        $(this).hide();
+      });
+      $("#itemRecord").bind('popupbeforeposition', function(){
+        $("#recSubmit").on('click', function(){
+          sendThings={
+            id:String(record[0].id),
+            count: parseInt($('#recNumOfItem').val()),
+          };
+          $.ajax({
+            url:'http://shrouded-beyond-1547.herokuapp.com/api/v1/update_entry',
+            type:'POST',
+            data:JSON.stringify(sendThings),
+            dataType: 'json',
+            contentType: 'application/json',
+          });
+        });
+      });
     },
   });
+  //adding item popup
   $('#addItem').bind('popupbeforeposition', function(){
     insertDefaultDate();
+    $('#puSubmit').on('tap', function(){
+      manualAdd();
+    });
   });
 }); 
-
 function renderList(data){
   for (i=0; i<data.length; i++){
     daysInFridge = getDaysInFridge(parseInt(data[i]['time_in']));
@@ -31,10 +65,27 @@ function renderList(data){
       "</p><p>days</p></div></a></li>");
     $('.inventoryItem').last().addClass(status);
     $('.face').last().addClass(face);
-    $("#inventoryTable").listview('refresh'); 
+    $('.inventoryItem').last().data('item-id', data[i]['id']);
+    $('.inventoryItem').last().data('status', status);
+    $('.inventoryItem').last().data('days', daysInFridge);
   }
+  $("#inventoryTable").listview('refresh'); 
 }
-
+function manualAdd(){
+  sendStuff={
+    item_name: String($('#foodItem').val()),
+    time_in:setDate($("#dateIn").val()),
+    camera_id : userId,
+    count: parseInt($('#numOfItem').val()),
+  };
+  $.ajax({
+    url:"http://shrouded-beyond-1547.herokuapp.com/api/v1/add_entry",
+    type: "POST",
+    data:JSON.stringify(sendStuff),
+    dataType: 'json',
+    contentType: 'application/json',
+  });
+}
 function getDaysInFridge(dateIn){
   today = new Date();
   UTCtoday = today.getTime();
@@ -54,20 +105,14 @@ function getStatus (diff){
     return "normal";
 }
 function getFace (status){
-  if (status ="eatSoon")
+  if (status =="eatSoon")
     return 'fa fa-meh-o';
-  else if (status="spoiled")
+  else if (status=="spoiled")
     return 'fa fa-frown-o';
   else
     return 'fa fa-smile-o';
 }
-
 function insertDefaultDate(){
-  today=getToday();
-  $("#dateIn").val(today[0]+'-'+today[1]+'-'+today[2]);
-}
-
-function getToday(){	
 	date = new Date();
 	d = date.getDate();
 	m = date.getMonth()+1;
@@ -77,6 +122,29 @@ function getToday(){
     m = "0" + m;
   if(d < 10) 
     d = "0" + d;
+  $("#dateIn").val(y+'-'+m+'-'+d);
+}
+function setDate(timeIn){
+  now = new Date();
+  hours = now.getUTCHours()*3600*1000;
+  minutes = now.getUTCMinutes()*60*1000;
+  seconds = now.getUTCSeconds()*1000;
+  d = new Date(timeIn);
+  newTime=(d.getTime()+ hours+minutes+seconds)/1000;
+  return String(newTime);
+}
+function setRecordPopup(itemId, itemStatus, itemDays){
+  $("#itemRecord").popup("open");
+  record = listOfFood.filter(function(el){return (el.id==itemId);});
   
-  return [y,m,d];
+  $('#recFoodItem').empty();
+  $('#recFoodItem').append(record[0].item_name);
+  
+  $('#recStatus').empty();
+  $('#recStatus').append(itemStatus);
+  
+  $('#recDays').empty();
+  $('#recDays').append(itemDays);
+  
+  $('#recNumOfItem').val(record[0].count);
 }
