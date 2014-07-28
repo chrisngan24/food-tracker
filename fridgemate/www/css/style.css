@@ -35,11 +35,14 @@ input[type="date"]::-webkit-inner-spin-button{
   border-color: lightgreen;
 }
 .ui-checkbox-on .ui-icon{
-  background-color: currentcolor;
+  background-color: rgb(255,255,255);
 }
 .ui-checkbox-on{
   background-color: rgb(221, 250, 221)!important;
 }
 .ui-btn-down-b .ui-btn-inner{
   background-color: transparent!important;
+}
+#addItemForm label{
+  color: floralwhite;
 }

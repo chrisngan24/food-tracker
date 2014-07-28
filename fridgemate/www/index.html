@@ -40,7 +40,7 @@
             <h1>Add Food Item</h1>
           </div>
           <div data-role='content' data-theme='b'>
-            <ul data-role="listview" data-inset="true" data-theme='b'>
+            <ul data-role="listview" data-inset="true" data-theme='b' id='addItemForm'>
               <form>
                 <li data-role="fieldcontain">
                 <label for="foodItem"> Food Item </label>
@@ -112,12 +112,12 @@
       </div>
     </div>
       
-     <div data-role="page" id="grocery" data-theme='b'>
+     <div data-role="page" id="grocery">
       <div data-role="header" data-theme='b'>
         <h1 class="ui-title"> Grocery </h1>
       </div>
-      <div data-role="content" data-theme='b'>
-        <form data-theme='b' data-native-menu='true' data-inset='true' id="groceryList">
+      <div data-role="content">
+        <form  data-native-menu='true' data-inset='true' id="groceryList">
         <!-- <fieldset  data-role="controlgroup" data-theme='b'>
         </fieldset> -->
         </form>
