@@ -16,12 +16,7 @@ $(document).on('pageshow','#inventory', function () {
     $("[data-role='footer']").append(data).trigger("create"); 
   });
   
-  $(".inventoryItem").click(function(){
-    itemId = $(this).data('item-id');
-    itemStatus = $(this).data('status');
-    itemDays = $(this).data('days');
-    setRecordPopup(data, itemId, itemStatus, itemDays);
-  });
+
   $('.inventoryItem').on('taphold',function(){
     console.log('yooo');
     $(this).hide();
@@ -33,7 +28,11 @@ $(document).on('pageshow','#inventory', function () {
   });
   //adding item popup
   $('#addItem').bind('popupbeforeposition', function(){
+    $('input').val('');
+    
     insertDefaultDate();
+    $('#dateHide').hide();
+    $('#puSubmit').unbind();
     $('#puSubmit').on('tap', function(){
       manualAdd(BASE_URL);
     });

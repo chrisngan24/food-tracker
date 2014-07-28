@@ -10,6 +10,12 @@ function renderList(data){
       addInventoryList(data[i]);
     }
   }
+  $(".inventoryItem").click(function(){
+    itemId = $(this).data('item-id');
+    itemStatus = $(this).data('status');
+    itemDays = $(this).data('days');
+    setRecordPopup(data, itemId, itemStatus, itemDays);
+  });
   $("#inventoryTable").listview('refresh'); 
 }
 
@@ -21,7 +27,7 @@ function addInventoryList(entry){
     "<li class='inventoryItem " + status +  
     "'><a><div class='ui-block-a'><i class='face " + face + "'></i></div>"+
     "<div class='ui-block-b numOfFruit'><h1>"+entry['count']+
-    "</h1></div><div class='ui-block-c fruit'><h1>"+entry['item_name']+
+    "</h1></div><div class='ui-block-c fruit'><h1>"+entry['item_name'].toUpperCase()+
     "</h1></div><div class='ui-block-d numOfDays'><p>"+daysInFridge+
     "</p><p>days</p></div></a></li>");
   $('.inventoryItem').last().data('item-id', entry['id']);
@@ -36,7 +42,10 @@ function manualAdd(baseUrl){
     camera_id : userId,
     count: parseInt($('#numOfItem').val()),
   };
-  $.ajax({
+  inventoryList = Model.inventory.getInventory();
+  inventoryList.push(entry);
+  renderList(inventoryList);
+/*    $.ajax({
     url: baseUrl + "/api/v1/add_entry",
     type: "POST",
     data:JSON.stringify(entry),
@@ -55,13 +64,13 @@ function manualAdd(baseUrl){
         renderList(inventoryList);
       }
     }
-  });
+  });  */
 }
 function getDaysInFridge(dateIn){
   today = new Date();
   UTCtoday = today.getTime();
   diff = UTCtoday - (dateIn*1000);
-  days = diff/(5*60*1000);
+  days = Math.abs(diff/(5*60*1000));
   //(24*60*60*1000);
   return parseInt(days);
 }

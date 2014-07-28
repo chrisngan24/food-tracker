@@ -52,17 +52,9 @@
                 <input type="number" name="num" id="numOfItem" min=0 value=0 required="required">
                 </li>
                 
-                <li data-role="fieldcontain"> 
+                <li data-role="fieldcontain" id="dateHide"> 
                 <label for='dateIn'>Day In</label>
                 <input type="date" name="inputDate" id="dateIn" data-clear-btn="true" required="required">
-                </li>
-                
-                <li data-role="fieldcontain">
-                <label for="autoList">Add to grocery list when finished</label>
-                <select name="flip2" id="flip2b" data-role="flipswitch" data-native-menu='true'>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
                 </li>
                 
                 <li class='showastabs center nobg'>
@@ -87,19 +79,12 @@
               <li data-role="fieldcontain">
                Status: <text id='recStatus'></text>
               </li>
-              <li data-role="fielcontain">
+              <li data-role="fieldcontain">
                 Days in Fridge: <text id="recDays"></text>
               </li>
               <li data-role="fieldcontain">
                 <label for="numOfItem"> # of food items</label>
-                <input type="number" id="recNumOfItem" min=0 value=0 required="required">
-              </li>
-              <li data-role="fieldcontain">
-                <label for="autoList">Add to grocery list when finished</label>
-                <select name="flip2" id="flip2b" data-role="flipswitch" data-native-menu='true'>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
+                <input type="number" id="recNumOfItem" min=0 required="required">
               </li>
               <li class='showastabs center nobg'>
                 <a href='#' id='recSubmit' data-rel='back' data-icon='ok' data-iconpos='left' data-role='button' data-inline='true'>Okay</a>

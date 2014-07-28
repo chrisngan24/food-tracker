@@ -46,3 +46,9 @@ input[type="date"]::-webkit-inner-spin-button{
 #addItemForm label{
   color: floralwhite;
 }
+#itemRecord form{
+  color: floralwhite!important;
+}
+.ui-input-text.ui-focus{
+  background-color: white !important;
+}
