@@ -1,5 +1,6 @@
 var userId='012';
-var BASE_URL = "http://shrouded-beyond-1547.herokuapp.com";
+// var BASE_URL = "http://shrouded-beyond-1547.herokuapp.com";
+var BASE_URL = "http://29432714.ngrok.com";
 
 $(document).on('pageinit', '#index', function(){
   Service.loadData(BASE_URL, userId);

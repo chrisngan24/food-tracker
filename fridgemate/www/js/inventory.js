@@ -16,13 +16,12 @@ function addInventoryList(entry){
   status = getStatus (daysInFridge);
   face = getFace (status);
   $('#inventoryTable').append(
-    "<li class='inventoryItem'><a><div class='ui-block-a'><i class='face'></i></div>"+
+    "<li class='inventoryItem " + status +  
+    "'><a><div class='ui-block-a'><i class='face " + face + "'></i></div>"+
     "<div class='ui-block-b numOfFruit'><h1>"+entry['count']+
     "</h1></div><div class='ui-block-c fruit'><h1>"+entry['item_name']+
     "</h1></div><div class='ui-block-d numOfDays'><p>"+daysInFridge+
     "</p><p>days</p></div></a></li>");
-  $('.inventoryItem').last().addClass(status);
-  $('.face').last().addClass(face);
   $('.inventoryItem').last().data('item-id', entry['id']);
   $('.inventoryItem').last().data('status', status);
   $('.inventoryItem').last().data('days', daysInFridge);
@@ -40,7 +39,13 @@ function manualAdd(baseUrl){
     type: "POST",
     data:JSON.stringify(entry),
     dataType: 'json',
-    contentType: 'application/json'
+    contentType: 'application/json',
+    success: function(data){
+      var inventoryList = Model.inventory.getInventory();
+      inventoryList.push(data);
+      Model.inventory.setInventory(inventoryList);
+      renderList(inventoryList);
+    }
   });
 }
 function getDaysInFridge(dateIn){
