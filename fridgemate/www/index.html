@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+    <link rel="stylesheet" href="nativedroid/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/colourGradient.css">
     
-    <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
-    <link rel="stylesheet" href="nativedroid/css/font-awesome.min.css">
     <!-- nativeDroid core CSS -->
     <link rel="stylesheet" href="nativedroid/css/jquerymobile.nativedroid.css">
     <!-- nativeDroid: light/dark -->
@@ -111,13 +112,16 @@
       </div>
     </div>
       
-     <div data-role="page" id="grocery">
+     <div data-role="page" id="grocery" data-theme='b'>
       <div data-role="header" data-theme='b'>
         <h1 class="ui-title"> Grocery </h1>
       </div>
-      <div data-role="content">
-        <ul data-role="listview" data-icon="false" data-inset="false" data-divider-theme='b' id="groceryList">
-        </ul>
+      <div data-role="content" data-theme='b'>
+        <form data-theme='b' data-native-menu='true' data-inset='true' id="groceryList">
+        <!-- <fieldset  data-role="controlgroup" data-theme='b'>
+        </fieldset> -->
+        </form>
+
       </div>  
       <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false" data-theme='b'>
       </div>

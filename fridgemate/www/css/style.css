@@ -28,4 +28,18 @@ input[type="date"]::-webkit-inner-spin-button{
 /* .notext .ui-btn-text{
   padding-right: 0;
   margin-right: -5px; /* not a perfect soltiuon, leaves border along top */
-} */
+.groceryItem{
+  margin: 0px;
+  background: white;
+  border-width: 0px 0px 3px 0px;
+  border-color: lightgreen;
+}
+.ui-checkbox-on .ui-icon{
+  background-color: currentcolor;
+}
+.ui-checkbox-on{
+  background-color: rgb(221, 250, 221)!important;
+}
+.ui-btn-down-b .ui-btn-inner{
+  background-color: transparent!important;
+}

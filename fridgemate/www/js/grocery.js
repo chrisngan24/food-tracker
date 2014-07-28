@@ -5,7 +5,6 @@ Grocery.initialize = function(){
 	var inventory = Model.inventory.getInventory();	
 
 	var groceryList = Grocery.generateGroceryList(user, inventory);
-	debugger;
 	Grocery.renderList(groceryList);
 
 };
@@ -27,16 +26,16 @@ Grocery.generateGroceryList = function(user, inventory){
 };
 
 Grocery.renderList = function(groceryList){
-	$('#groceryList').empty();
+ 	$('#groceryList').empty();
 	for(var i = 0; i < groceryList.length; i++){
-		Grocery.appendGroceryItem(groceryList[i]);
+		Grocery.appendGroceryItem(groceryList[i], i);
 	}
-	$("#groceryList").listview('refresh'); 
-
+	$("#groceryList").trigger('create'); 
+  
 };
 
-Grocery.appendGroceryItem = function(groceryItem){
+Grocery.appendGroceryItem = function(groceryItem, i){
 	$('#groceryList').append(
-    "<li class='inventoryItem'>" + groceryItem + '</li>'
-  );
+    "<input type='checkbox' id='checkbox-"+i+"'>"+
+    "<label class='groceryItem' for='checkbox-"+i+"'>"+ groceryItem +"</label>");
 }
