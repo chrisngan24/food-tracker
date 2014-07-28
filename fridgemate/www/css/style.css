@@ -43,3 +43,6 @@ input[type="date"]::-webkit-inner-spin-button{
 .ui-btn-down-b .ui-btn-inner{
   background-color: transparent!important;
 }
+#addItemForm label{
+  color: floralwhite;
+}
