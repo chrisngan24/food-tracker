@@ -27,6 +27,7 @@ Grocery.generateGroceryList = function(user, inventory){
 };
 
 Grocery.renderList = function(groceryList){
+	$('#groceryList').empty();
 	for(var i = 0; i < groceryList.length; i++){
 		Grocery.appendGroceryItem(groceryList[i]);
 	}
