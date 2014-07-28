@@ -6,7 +6,9 @@
 function renderList(data){
   $("#inventoryTable").empty();
   for (i=0; i<data.length; i++){
-    addInventoryList(data[i]);
+    if (data[i] != null){
+      addInventoryList(data[i]);
+    }
   }
   $("#inventoryTable").listview('refresh'); 
 }
@@ -41,10 +43,17 @@ function manualAdd(baseUrl){
     dataType: 'json',
     contentType: 'application/json',
     success: function(data){
-      var inventoryList = Model.inventory.getInventory();
-      inventoryList.push(data);
-      Model.inventory.setInventory(inventoryList);
-      renderList(inventoryList);
+      if (data != null){
+        var inventoryList = Model.inventory.getInventory();
+        inventoryList.push(data);
+        Model.inventory.setInventory(inventoryList);
+        renderList(inventoryList);
+      } else {
+        var inventoryList = Model.inventory.getInventory();
+        inventoryList.push(data);
+        
+        renderList(inventoryList);
+      }
     }
   });
 }
