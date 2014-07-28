@@ -41,5 +41,8 @@ $(document).on('pageshow','#inventory', function () {
 
 $(document).on('pageshow','#grocery', function () {
   Grocery.initialize();
-
+    $.get("footer.html", function(data){
+    $("[data-role='footer']").empty();
+    $("[data-role='footer']").append(data).trigger("create"); 
+  });
 });
